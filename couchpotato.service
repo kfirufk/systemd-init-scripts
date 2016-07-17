@@ -1,0 +1,13 @@
+[Unit]
+Description=CouchPotato application instance
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python /opt/CouchPotatoServer/CouchPotato.py --daemon --pid_file /opt/couchpotato-data/couchpotato.pid --data_dir /opt/couchpotato-data --config_file /etc/couchpotato/couchpotato.ini
+Type=forking
+User=couchpotato
+Group=couchpotato
+PIDFile=/opt/couchpotato-data/couchpotato.pid
+
+[Install]
+WantedBy=multi-user.target
